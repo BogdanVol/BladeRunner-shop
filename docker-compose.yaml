@@ -3,26 +3,28 @@ version: '3.7'
 services:
   db:
     image: postgres
-    container_name: db_bladerunner
+    container_name: db_blade_runner
     volumes:
       - db_bladerunner_vol:/var/lib/postgresql/data
     env_file:
       - .env.dev
     ports:
       - "5432:5432"
+
   web:
     build: .
-    container_name: bladerunner
+    container_name: blade_runner
     command: >
       sh -c "python manage.py migrate
       && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - ./:/bladerunner
+      - ./:/blade_runner
     ports:
       - "8000:8000"
     depends_on:
       - db
     env_file:
       - .env.dev
+
 volumes:
   db_bladerunner_vol:
