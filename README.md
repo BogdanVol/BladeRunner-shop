@@ -19,10 +19,6 @@ python -m venv venv
 ```
 ## Install requirements
 ```
-cd backend/games
-```
-
-```
 pip install -r requirements.txt
 ```
 
@@ -31,10 +27,14 @@ pip install -r requirements.txt
 pre-commit install
 ```
 
-### RUN
+### RUN app
 
 ```
 docker-compose up --build
+```
+or
+```
+docker-compose up
 ```
 
 #### Run tests
